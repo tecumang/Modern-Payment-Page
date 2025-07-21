@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <title>Secure Payment - Premium Pay</title>
+  <!-- icon -->
+  <link rel="icon" href="img/icon.ico" type="image/x-icon" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <!-- Google Fonts Roboto -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" />
+  <!-- MDB -->
+  <link rel="stylesheet" href="css/mdb.min.css" />
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/index.css" />
+
+</head>
+
+<body>
+
+  <div class="main-container">
+    <div class="payment-card card">
+      <div class="card-header">
+        <h2 class="mb-0">
+          <i class="fas fa-shield-alt me-2"></i>
+          Secure Payment
+        </h2>
+        <p class="mb-0 mt-2 opacity-75">Choose your preferred payment method</p>
+      </div>
+
+      <div class="card-body">
+        <div class="amount-display">
+          <div class="amount-value">₹1,299</div>
+          <small class="text-muted">Premium Plan - Monthly Subscription</small>
+        </div>
+
+        <!-- Payment Method Selection -->
+        <div class="payment-methods">
+          <div class="payment-method" data-method="card">
+            <div class="payment-method-icon">
+              <i class="fas fa-credit-card"></i>
+            </div>
+            <div class="payment-method-title">Credit/Debit Card</div>
+            <div class="payment-method-desc">Visa, Mastercard, Amex</div>
+          </div>
+
+          <div class="payment-method" data-method="upi">
+            <div class="payment-method-icon">
+              <i class="fas fa-mobile-alt"></i>
+            </div>
+            <div class="payment-method-title">UPI</div>
+            <div class="payment-method-desc">Google Pay, PhonePe, Paytm</div>
+          </div>
+
+          <div class="payment-method" data-method="netbanking">
+            <div class="payment-method-icon">
+              <i class="fas fa-university"></i>
+            </div>
+            <div class="payment-method-title">Net Banking</div>
+            <div class="payment-method-desc">All major banks</div>
+          </div>
+
+          <div class="payment-method" data-method="wallet">
+            <div class="payment-method-icon">
+              <i class="fas fa-wallet"></i>
+            </div>
+            <div class="payment-method-title">Digital Wallet</div>
+            <div class="payment-method-desc">Paytm, Amazon Pay</div>
+          </div>
+        </div>
+
+        <!-- Card Payment Form -->
+        <div id="cardForm" class="payment-form">
+          <form id="card-payment-form">
+            <div class="form-floating">
+              <input type="text" class="form-control" id="cardNumber" placeholder="Card Number" maxlength="19" required>
+              <label class="form-label" for="cardNumber">Card Number</label>
+            </div>
+
+            <div class="input-group">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="expiry" placeholder="MM/YY" maxlength="5" required>
+                <label class="form-label" for="expiry">Expiry Date</label>
+              </div>
+              <div class="form-floating">
+                <input type="text" class="form-control" id="cvv" placeholder="CVV" maxlength="4" required>
+                <label class="form-label" for="cvv">CVV</label>
+              </div>
+            </div>
+
+            <div class="form-floating">
+              <input type="text" class="form-control" id="cardName" placeholder="Cardholder Name" required>
+              <label class="form-label" for="cardName">Cardholder Name</label>
+            </div>
+
+            <div class="card-brands">
+              <div class="card-brand"><i class="fab fa-cc-visa" style="color: #1a1f71;"></i></div>
+              <div class="card-brand"><i class="fab fa-cc-mastercard" style="color: #eb001b;"></i></div>
+              <div class="card-brand"><i class="fab fa-cc-amex" style="color: #006fcf;"></i></div>
+              <div class="card-brand"><i class="fab fa-cc-discover" style="color: #ff6000;"></i></div>
+            </div>
+
+            <button type="submit" class="btn btn-payment">
+              <span class="btn-text">Pay ₹1,299</span>
+              <div class="loading-spinner"></div>
+            </button>
+          </form>
+        </div>
+
+        <!-- UPI Payment Form -->
+        <div id="upiForm" class="payment-form">
+          <form id="upi-payment-form">
+            <div class="form-floating">
+              <input type="text" class="form-control" id="upiId" placeholder="UPI ID" required>
+              <label for="upiId">Enter UPI ID</label>
+            </div>
+
+            <div class="upi-apps">
+              <div class="upi-app" data-app="gpay">
+                <div class="upi-app-icon" style="color: #4285f4;">
+                  <i class="fab fa-google-pay"></i>
+                </div>
+                <div>Google Pay</div>
+              </div>
+              <div class="upi-app" data-app="phonepe">
+                <div class="upi-app-icon" style="color: #5f2d91;">
+                  <i class="fas fa-mobile-alt"></i>
+                </div>
+                <div>PhonePe</div>
+              </div>
+              <div class="upi-app" data-app="paytm">
+                <div class="upi-app-icon" style="color: #00baf2;">
+                  <i class="fas fa-wallet"></i>
+                </div>
+                <div>Paytm</div>
+              </div>
+              <div class="upi-app" data-app="bhim">
+                <div class="upi-app-icon" style="color: #ff6600;">
+                  <i class="fas fa-university"></i>
+                </div>
+                <div>BHIM UPI</div>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-payment">
+              <span class="btn-text">Pay via UPI</span>
+              <div class="loading-spinner"></div>
+            </button>
+          </form>
+        </div>
+
+        <!-- Net Banking Form -->
+        <div id="netbankingForm" class="payment-form">
+          <form id="netbanking-payment-form">
+            <div class="form-floating">
+              <select class="form-control" id="bankSelect" required>
+                <option value="">Select Your Bank</option>
+                <option value="sbi">State Bank of India</option>
+                <option value="hdfc">HDFC Bank</option>
+                <option value="icici">ICICI Bank</option>
+                <option value="axis">Axis Bank</option>
+                <option value="kotak">Kotak Bank</option>
+                <option value="pnb">Punjab National Bank</option>
+                <option value="bob">Bank of Baroda</option>
+                <option value="canara">Canara Bank</option>
+              </select>
+              <label for="bankSelect">Select Bank</label>
+            </div>
+
+            <div class="bank-grid">
+              <div class="bank-option" data-bank="sbi">SBI</div>
+              <div class="bank-option" data-bank="hdfc">HDFC</div>
+              <div class="bank-option" data-bank="icici">ICICI</div>
+              <div class="bank-option" data-bank="axis">Axis</div>
+              <div class="bank-option" data-bank="kotak">Kotak</div>
+              <div class="bank-option" data-bank="pnb">PNB</div>
+            </div>
+
+            <button type="submit" class="btn btn-payment">
+              <span class="btn-text">Proceed to Bank</span>
+              <div class="loading-spinner"></div>
+            </button>
+          </form>
+        </div>
+
+        <!-- Wallet Payment Form -->
+        <div id="walletForm" class="payment-form">
+          <form id="wallet-payment-form">
+            <div class="wallet-options">
+              <div class="wallet-option" data-wallet="paytm">
+                <div style="color: #00baf2; font-size: 1.5rem; margin-bottom: 0.5rem;">
+                  <i class="fas fa-wallet"></i>
+                </div>
+                <div>Paytm Wallet</div>
+              </div>
+              <div class="wallet-option" data-wallet="amazonpay">
+                <div style="color: #ff9900; font-size: 1.5rem; margin-bottom: 0.5rem;">
+                  <i class="fab fa-amazon-pay"></i>
+                </div>
+                <div>Amazon Pay</div>
+              </div>
+              <div class="wallet-option" data-wallet="mobikwik">
+                <div style="color: #2d5aa0; font-size: 1.5rem; margin-bottom: 0.5rem;">
+                  <i class="fas fa-mobile-alt"></i>
+                </div>
+                <div>MobiKwik</div>
+              </div>
+              <div class="wallet-option" data-wallet="freecharge">
+                <div style="color: #f47721; font-size: 1.5rem; margin-bottom: 0.5rem;">
+                  <i class="fas fa-bolt"></i>
+                </div>
+                <div>FreeCharge</div>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-payment">
+              <span class="btn-text">Pay via Wallet</span>
+              <div class="loading-spinner"></div>
+            </button>
+          </form>
+        </div>
+
+        <div class="security-badge">
+          <i class="fas fa-lock"></i>
+          <span>256-bit SSL encryption • PCI DSS compliant</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Create floating particles
+    function createParticles() {
+      const container = document.querySelector('.floating-particles');
+      for (let i = 0; i < 50; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.animationDelay = Math.random() * 20 + 's';
+        particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+        container.appendChild(particle);
+      }
+    }
+
+    // Payment method selection
+    document.querySelectorAll('.payment-method').forEach(method => {
+      method.addEventListener('click', function () {
+        // Remove active class from all methods
+        document.querySelectorAll('.payment-method').forEach(m => m.classList.remove('active'));
+        document.querySelectorAll('.payment-form').forEach(f => f.classList.remove('active'));
+
+        // Add active class to clicked method
+        this.classList.add('active');
+
+        // Show corresponding form
+        const methodType = this.dataset.method;
+        document.getElementById(methodType + 'Form').classList.add('active');
+      });
+    });
+
+    // Format card number
+    document.getElementById('cardNumber').addEventListener('input', function (e) {
+      let value = e.target.value.replace(/\s+/g, '').replace(/[^0-9]/gi, '');
+      let matches = value.match(/\d{4,16}/g);
+      let match = matches && matches[0] || '';
+      let parts = [];
+
+      for (let i = 0, len = match.length; i < len; i += 4) {
+        parts.push(match.substring(i, i + 4));
+      }
+
+      if (parts.length) {
+        e.target.value = parts.join(' ');
+      } else {
+        e.target.value = value;
+      }
+    });
+
+    // Format expiry date
+    document.getElementById('expiry').addEventListener('input', function (e) {
+      let value = e.target.value.replace(/\D/g, '');
+      if (value.length >= 2) {
+        value = value.substring(0, 2) + '/' + value.substring(2, 4);
+      }
+      e.target.value = value;
+    });
+
+    // CVV input restriction
+    document.getElementById('cvv').addEventListener('input', function (e) {
+      e.target.value = e.target.value.replace(/\D/g, '');
+    });
+
+    // Bank selection
+    document.querySelectorAll('.bank-option').forEach(option => {
+      option.addEventListener('click', function () {
+        document.querySelectorAll('.bank-option').forEach(o => o.classList.remove('selected'));
+        this.classList.add('selected');
+        document.getElementById('bankSelect').value = this.dataset.bank;
+      });
+    });
+
+    // UPI app selection
+    document.querySelectorAll('.upi-app').forEach(app => {
+      app.addEventListener('click', function () {
+        document.querySelectorAll('.upi-app').forEach(a => a.classList.remove('selected'));
+        this.classList.add('selected');
+      });
+    });
+
+    // Wallet selection
+    document.querySelectorAll('.wallet-option').forEach(wallet => {
+      wallet.addEventListener('click', function () {
+        document.querySelectorAll('.wallet-option').forEach(w => w.classList.remove('selected'));
+        this.classList.add('selected');
+      });
+    });
+
+    // Form submissions
+    function handleFormSubmit(formId) {
+      document.getElementById(formId).addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const btn = this.querySelector('.btn-payment');
+        const btnText = btn.querySelector('.btn-text');
+        const spinner = btn.querySelector('.loading-spinner');
+
+        // Show loading state
+        btn.disabled = true;
+        btnText.textContent = 'Processing...';
+        spinner.style.display = 'inline-block';
+
+        // Simulate payment processing
+        setTimeout(() => {
+          // Randomly show success or failure (70% success rate)
+          const isSuccess = Math.random() > 0.3;
+
+          if (isSuccess) {
+            window.location.href = 'success.html';
+          } else {
+            window.location.href = 'failed.html';
+          }
+        }, 3000);
+      });
+    }
+
+    // Initialize form handlers
+    handleFormSubmit('card-payment-form');
+    handleFormSubmit('upi-payment-form');
+    handleFormSubmit('netbanking-payment-form');
+    handleFormSubmit('wallet-payment-form');
+
+    // Initialize particles
+    createParticles();
+
+    // Set default payment method
+    document.querySelector('.payment-method[data-method="card"]').click();
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Payment Failed - Premium Pay</title>
+    <!-- icon -->
+    <link rel="icon" href="img/icon.ico" type="image/x-icon" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" />
+    <!-- MDB -->
+    <link rel="stylesheet" href="css/mdb.min.css" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/failed.css" />
+</head>
+
+<body>
+    <div class="bg-particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+
+    <div class="error-container">
+        <div class="error-card">
+            <div class="error-icon-wrapper">
+                <i class="fas fa-exclamation-triangle error-icon"></i>
+            </div>
+
+            <h1 class="error-title">Payment Failed</h1>
+
+            <p class="error-message">
+                We encountered an issue processing your payment. This could be due to insufficient funds, an
+                expired
+                card, or a network error.
+            </p>
+
+            <div class="error-details">
+                <strong>Common reasons for payment failure:</strong>
+                • Insufficient funds or credit limit reached<br>
+                • Expired or invalid card details<br>
+                • Network connectivity issues<br>
+                • Bank security restrictions
+            </div>
+
+            <div class="button-group">
+                <a href="index.html" class="btn btn-primary" id="retryBtn">
+                    <i class="fas fa-redo"></i>
+                    Try Again
+                </a>
+                <a href="index.html" class="btn btn-outline">
+                    <i class="fas fa-home"></i>
+                    Go Home
+                </a>
+            </div>
+
+            <div class="support-info">
+                <p>Still having trouble? <a href="mailto:support@premiumpay.com">Contact Support</a> or call
+                    <strong>1-800-PREMIUM</strong>
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        // Enhanced interactions
+        document.addEventListener('DOMContentLoaded', function () {
+            const retryBtn = document.getElementById('retryBtn');
+            const errorIcon = document.querySelector('.error-icon');
+
+            // Add bounce animation to icon on page load
+            setTimeout(() => {
+                errorIcon.classList.add('icon-bounce');
+            }, 500);
+
+            // Enhanced button click handling
+            retryBtn.addEventListener('click', function (e) {
+                e.preventDefault();
+                this.classList.add('loading');
+
+                // Simulate processing delay
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 1500);
+            });
+
+            // Add ripple effect to buttons
+            document.querySelectorAll('.btn').forEach(button => {
+                button.addEventListener('click', function (e) {
+                    if (this.classList.contains('loading')) return;
+
+                    const ripple = document.createElement('span');
+                    const rect = this.getBoundingClientRect();
+                    const size = Math.max(rect.width, rect.height);
+                    const x = e.clientX - rect.left - size / 2;
+                    const y = e.clientY - rect.top - size / 2;
+
+                    ripple.style.width = ripple.style.height = size + 'px';
+                    ripple.style.left = x + 'px';
+                    ripple.style.top = y + 'px';
+                    ripple.style.position = 'absolute';
+                    ripple.style.background = 'rgba(255, 255, 255, 0.5)';
+                    ripple.style.borderRadius = '50%';
+                    ripple.style.pointerEvents = 'none';
+                    ripple.style.transform = 'scale(0)';
+                    ripple.style.animation = 'ripple 0.6s linear';
+
+                    this.appendChild(ripple);
+
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 600);
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
